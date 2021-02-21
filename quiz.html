@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <title>신사임당 quiz 화면</title>
+</html>
+
+<body>
+
+    <style>
+        #button {
+            font-size:8px;
+            background-color: darkgray;
+            color:white;
+            border:none;
+        }
+
+        #button:hover {
+            background-color: orange;
+        }
+
+        #jstext {
+            font-size:8px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        var question = ['\'삼귀다\'의 뜻은?', '\'남사친\'의 뜻은?', '\'롬곡옾높\'의 뜻은?', '\'#G\'의 뜻은?']
+
+        document.write('<p id = "jstext">', randomItem(question), '</p>');
+
+        function randomItem(a) {
+            return a[Math.floor(Math.random() * a.length)];
+        }
+    </script>
+
+    <button type = "text" id = button title="삼귀다">사귀기 전 사이</button>
+    <button type = "text" id = button title="남사친">남자 사람 친구</button>
+    <button type = "text" id = button title="롬곡옾높">폭풍눈물의 180º 회전</button>
+    <button type = "text" id = button title="#G">시아버지의 줄임말</button>
+</body>

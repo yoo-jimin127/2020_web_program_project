@@ -1,0 +1,157 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title>로그인 화면</title>  
+
+<style>   
+Body {  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: white; 
+  /* padding : 25px; */
+  margin : 30px;
+  margin-left : 100px;
+  margin-right : 100px;
+  font-size : 15px;
+  font-weight : bold;
+} 
+
+h1 {
+    color : rgb(134, 39, 39);
+    font-weight : bolder;
+    font-size : 30px;
+}
+
+button {   
+       background-color: rgb(134, 39, 39);   
+       width: 70%;  
+        color: white;   
+        padding: 10px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+         
+ form {   
+        border: 3px solid rgb(250, 192, 31);
+        /* margin: 30px;    */
+
+    }   
+ input[type=text], input[type=password] {   
+        width: 70%;   
+        margin: 3px 0;  
+        padding: 5px 20px;   
+        display: inline-block;   
+        border: 2px solid rgb(250, 192, 31);;   
+        box-sizing: border-box;
+    }  
+ button:hover {   
+        opacity: 0.7; 
+    }   
+        
+ .container {   
+        padding: 25px;
+        background-color: rgb(253, 224, 145); 
+    }   
+
+#logImg {
+    position : absolute;
+    margin-left: 10px;
+    margin-top: -20px;
+}
+
+footer {
+    color : grey;
+}
+</style>   
+</head>    
+
+<body>    
+    <img src = "media/web_logo.jpg" id = "logImg" width = "150" height = "120">
+    <center>
+        <br>
+        <h1>신사임당 로그인</h1> 
+    </center>   
+    <br>
+
+    <script>
+
+        function login_check() {
+
+            var infoAry = new Array();
+            infoAry = [/*아이디*/'jimin00', /*비밀번호*/'1357',
+                /*아이디*/'kangna', /*비밀번호*/'nana99',
+                /*아이디*/'hgoz00', /*비밀번호*/'hghg00',
+                /*아이디*/'jwchoi', /*비밀번호*/'jwjw123',
+                /*아이디*/'web123', /*비밀번호*/'wewe12',];
+                //짝수 인덱스: 아이디 값, 홀수 인덱스: 비밀번호 값
+                //짝수 인덱스의 문자열이 로그인에서 입력받은 아이디 문자열과 같을 경우, 짝수인덱스+1처리하여 비밀번호도 비교
+                
+            var user_id = document.getElementById( 'user_id' ).value;
+            var user_pass = document.getElementById( 'user_pass' ).value;
+
+            for (var i = 0; i < infoAry.length; i+=2) {
+                if (infoAry[i] == user_id) {
+                    if (infoAry[i+1] == user_pass) {
+                        alert('로그인에 성공하였습니다.');
+                    }
+                }
+
+                else {
+                    alert('로그인에 실패하였습니다.\n다시 입력해주세요.');
+                    return false;
+                }
+            }
+
+            if (user_id != confirm_id || user_pass != confirm_pass) {
+                alert ('로그인에 실패하였습니다.\n다시 로그인해주세요.');
+            }
+
+            // document.getElementById('submit').onclick = function() {
+            //     var ID = document.getElementById('user_id').value;
+            //     var pass = document.getElementById('user_pass').value;
+
+            //     for (var i = 0; i < infoAry.length; i+=2) {
+
+            //         if (ID == infoAry[i] && pass == infoAry[i+1]) {
+            //             alert("로그인 성공!");
+            //         }
+
+            //         else {
+            //         alert("로그인 실패!");
+            //         }
+            //     }
+        }
+    </script>
+
+    <form action="main_afterLogin_1.html" method="GET" onsubmit=" return login_check();">  
+        <div class="container">   
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <label>ID :  <br></label>   
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <input type="text" placeholder="ID를 입력하세요" name="username" required id = "user_id">  
+            <br>
+            <br>
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <label>Password :  <br></label>   
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <input type="password" placeholder="Password를 입력하세요" name="password" required id = "user_pass">  
+
+            <br> <br> 
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <button id="submit"><a href="main_afterLogin_1.html" style="text-decoration: none; color : white;">로그인</a></button> 
+            <br>  
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <button type="submit"><a href="join.html" style="text-decoration: none; color : white;">회원가입</a></button> 
+            <br> 
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="checkbox" checked="checked"> 아이디를 기억하시겠습니까?   
+        </div>   
+    </form>     
+
+    <footer>
+        <p style="text-align:center;">
+            <br>
+            우리가 만들어 가는 신조어 사전 : 신사임당 &ensp; | &ensp; 웹프로그래밍및실습 프로젝트 &ensp; | &ensp; 컴몽어스</p>
+    </footer>
+</body>     
+</html>  

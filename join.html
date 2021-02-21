@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>회원가입 화면</title>
+  
+  <style>
+  #logImg {
+    position : absolute;
+    margin-left: 10px;
+    margin-top: -10px;
+  }
+
+  Body {  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: white;  
+  /* padding : 25px; */
+  margin-left : 100px;
+  margin-right : 100px;
+  font-size : 12px;
+  font-weight : bold;
+  }
+  
+  form {   
+        border: 3px solid rgb(250, 192, 31);   
+    }   
+
+    h1 {
+    color : rgb(134, 39, 39);
+    font-weight : bolder;
+    font-size : 30px;
+}
+
+ input[type=text], input[type=password] {   
+        width: 70%;   
+        margin: 3px 0;  
+        padding: 5px 10px;   
+        display: inline-block;   
+        border: 2px solid rgb(250, 192, 31);;   
+        box-sizing: border-box;   
+    }  
+
+ button:hover {   
+        opacity: 0.7; 
+    }    
+        
+ .container {   
+        padding: 10px;   
+        background-color: rgb(253, 224, 145);;  
+    }
+
+  button {   
+    background-color: rgb(134, 39, 39);   
+    width: 50%;  
+    color: white;   
+    padding: 15px;   
+    margin: 10px 0px;   
+    border: none;   
+    cursor: pointer;   
+  }   
+
+  footer {
+    color : grey;
+  }
+  </style>
+ </head>
+
+ <body>
+  <img src = "media/web_logo.jpg" id = "logImg" width = "150" height = "120">
+  <center> 
+    <br>
+      <h1>신사임당 회원가입</h1> 
+  </center> 
+  <br><br>
+
+  <script>
+    function jbSubmit() {
+      var userName = document.getElementById('userName').value;
+      var userEmail = document.getElementById('userEmail').value;
+      var userID = document.getElementById('userID').value;
+      var pw1 = document.getElementById( 'pw1' ).value;
+      var pw2 = document.getElementById( 'pw2' ).value;
+
+      var infoAry = [userName, userEmail, userID, pw1, pw2];
+
+      if ( pw1 != pw2 ) {
+      alert( '비밀번호와 비밀번호 확인의 입력이 일치하지 않습니다.' );
+      return false;
+    }
+
+      alert( '이름 : ' + infoAry[0] + '\n' + '이메일 주소 : ' + infoAry[1] + '\n' + 'ID : ' + infoAry[2] + '\n' + '패스워드 : ' + infoAry[3] + '\n' + '패스워드 확인 : ' + infoAry[4] );
+    }
+  </script>
+
+  <form action="login.html" method="GET" onsubmit=" return jbSubmit();">  
+    <div class="container">
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;   
+        <label>이름 : <br></label>   
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="text" name="username" placeholder="이름을 입력하세요" required id = "userName">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <label>이메일 주소 : <br></label>   
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="text" name = "userEmail" placeholder="이메일 주소를 입력하세요" required id = "userEmail">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>ID : <br></label>   
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="text" name="userID" placeholder="ID를 입력하세요" required id = "userID">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>비밀번호 : <br></label>   
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="password" name="password" placeholder="비밀번호를 입력하세요" required id="pw1">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>비밀번호 확인: <br></label>   
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="password" name="password-confirm" placeholder="Confirm Password" required id="pw2">
+        <br>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="checkbox"> 개인정보 수집에 동의하십니까?<br><br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <!-- <button type="submit"><a href="login.html" style="text-decoration:none; color :white;">회원가입하기</a></button> -->
+        <button type = "submit" value = "회원가입하기" style = "text-decoration:none; color:whte">회원가입하기</button>
+      </div>   
+    </form> 
+
+        <footer>
+        <p style="text-align:center;" >
+          우리가 만들어 가는 신조어 사전 : 신사임당 &ensp; | &ensp; 웹프로그래밍및실습 프로젝트 &ensp; | &ensp; 컴몽어스</p>
+        </footer>    
+ </body>
+</html>

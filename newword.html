@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>단어 추가 화면</title>
+  
+  <style>
+  #logImg {
+    position : absolute;
+    margin-left: 10px;
+    margin-top: -10px;
+  }
+
+  #pw1{
+    visibility: hidden;
+  }
+  #pw2{
+    visibility: hidden;
+  }
+  Body {  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: white;  
+  /* padding : 25px; */
+  margin-left : 100px;
+  margin-right : 100px;
+  font-size : 12px;
+  font-weight : bold;
+  }
+  
+  form {   
+        border: 3px solid rgb(250, 192, 31);   
+    }   
+
+    h1 {
+    color : rgb(134, 39, 39);
+    font-weight : bolder;
+    font-size : 30px;
+}
+
+ input[type=text], input[type=password] {   
+        width: 70%;   
+        margin: 3px 0;  
+        padding: 5px 10px;   
+        display: inline-block;   
+        border: 2px solid rgb(250, 192, 31);;   
+        box-sizing: border-box;   
+    }  
+
+ button:hover {   
+        opacity: 0.7; 
+    }    
+        
+ .container {   
+        padding: 10px;   
+        background-color: rgb(253, 224, 145);;  
+    }
+
+  button {   
+    background-color: rgb(134, 39, 39);   
+    width: 50%;  
+    color: white;   
+    padding: 15px;   
+    margin: 10px 0px;   
+    border: none;   
+    cursor: pointer;   
+    
+  }   
+
+  footer {
+    color : grey;
+  }
+  
+  
+  </style>
+ </head>
+
+ <body>
+  <img src = "media/web_logo.jpg" id = "logImg" width = "150" height = "120">
+  <center> 
+    <br>
+      <h1>단어 추가 화면</h1> 
+  </center> 
+  <br><br>
+
+  <script>
+    function change() {
+        var engArray = document.getElementsByName("add");
+        for(var i=0; i<engArray.length; i++){
+            var obj= engArray[i];
+            var style = window.getComputedStyle(obj);
+            var v = style.getPropertyValue("visibility");
+            if(v=="hidden"){
+                obj.style.visibility="visible";
+            }
+            else{
+                obj.style.visibility="hidden";
+            }
+        }
+    }
+
+    function jbSubmit() {
+      var userName = document.getElementById('userName').value;
+      var userEmail = document.getElementById('userEmail').value;
+      var userID = document.getElementById('userID').value;
+      var pw1 = document.getElementById( 'pw1' ).value;
+      var pw2 = document.getElementById( 'pw2' ).value;
+
+      var infoAry = [userName, userEmail, userID, pw1, pw2];
+
+    
+      alert( '단어 입력: ' + infoAry[0] + '\n' + '뜻 설명 : ' + infoAry[1] + '\n' + '사용 예제 : ' + infoAry[2] + '\n' + '영어 설명 : ' + infoAry[3] + '\n' + '영어 사용 예제 : ' + infoAry[4] );
+    }
+  </script>
+
+  <form action="main_afterLogin_1.html" method="GET" onsubmit=" return jbSubmit();">  
+    <div class="container">
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;   
+      <label>단어 입력 : <br></label>  
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="text" name="username" placeholder="단어 입력" required id = "userName">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <label>뜻 설명 : <br></label> 
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="text" name = "userEmail" placeholder="뜻 설명" required id = "userEmail">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>사용 예제 : <br></label> 
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="text" name="userID" placeholder="사용 예제" required id = "userID">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="checkbox" onclick="change()"> 영어 설명 추가<br><br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>영어 설명 : <br></label> 
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <input type="text" name="add" placeholder="영어 설명" required id="pw1">
+        <br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <label>영어 사용 예제 : <br></label> 
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;
+        <input type="text" name="add" placeholder="영어 사용 예제" required id="pw2">
+        <br>
+        
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <!-- <button type="submit"><a href="login.html" style="text-decoration:none; color :white;">회원가입하기</a></button> -->
+        <button type = "submit" value = "단어 추가하기" style = "text-decoration:none; color:whte" id="but">단어 추가하기</button>
+      </div>   
+    </form> 
+
+        <footer>
+        <p style="text-align:center;" >
+          우리가 만들어 가는 신조어 사전 : 신사임당 &ensp; | &ensp; 웹프로그래밍및실습 프로젝트 &ensp; | &ensp; 컴몽어스</p>
+        </footer>    
+ </body>
+</html>
